@@ -3,6 +3,9 @@ import { Button, Modal } from 'react-bootstrap';
 import {  useHistory } from "react-router-dom";
 import axios from 'axios';
 
+const sqlurl = 'https://backend-nod.herokuapp.com/';
+//const sqlurl = 'localhost:3000/'; //run on local line
+
 const Login = () => {
   const history = useHistory();
   const [show, setShow] = useState(true);
@@ -10,8 +13,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-     const sqlurl = 'http://localhost:3000/api/'
-    axios.post(sqlurl +'login', { username, password })
+     
+    axios.post(sqlurl +'api/login', { username, password })
       .then(response => {
         // setUsers(Array.from(response.data.users));///////////////////////////
         // console.log(Array.from(response.data.users));
